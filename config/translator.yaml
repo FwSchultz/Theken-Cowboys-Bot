@@ -1,0 +1,26 @@
+translator:
+  discord:
+    source_channel_ids: []
+    target_channel_id: 0
+  translation:
+    provider: openai
+    fallback_provider: libretranslate
+    source_lang: English
+    target_lang: German
+    openai:
+      model: gpt-4.1-mini
+    deepl:
+      target_lang: DE
+    libretranslate:
+      source_lang: en
+      target_lang: de
+  behavior:
+    delete_original: false
+    post_as_embed: false
+    add_original_link: true
+    translate_embeds: true
+    translate_plain_text: true
+    allow_bot_messages: true
+    min_message_length: 3
+    show_original_excerpt: false
+    max_embed_description_length: 3900

@@ -1,0 +1,28 @@
+services:
+  theken-cowboys-bot:
+    build: .
+    container_name: theken-cowboys-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      TZ: Europe/Berlin
+    volumes:
+      - ./config:/app/config:ro
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    depends_on:
+      - libretranslate
+
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: theken-cowboys-libretranslate
+    restart: unless-stopped
+    environment:
+      LT_LOAD_ONLY: en,de
+    volumes:
+      - libretranslate-data:/home/libretranslate/.local
+
+volumes:
+  libretranslate-data:

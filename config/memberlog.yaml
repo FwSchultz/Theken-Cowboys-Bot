@@ -1,0 +1,14 @@
+member_logger:
+  enabled: true
+  log_channel_id: 0
+  tracked_role_ids: []
+  events:
+    voice_join: true
+    voice_leave: true
+    voice_switch: true
+    server_leave: true
+  cleanup:
+    enabled: true
+    interval_hours: 48
+    delete_after_hours: 48
+    scan_limit: 500

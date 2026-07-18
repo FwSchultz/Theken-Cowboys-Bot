@@ -1,0 +1,24 @@
+welcome:
+  enabled: true
+  use_embed: true
+  channel_id: 0
+  title: 🍻 Willkommen an der Theke
+  color: green
+  messages:
+  - 🍻 Willkommen {mention} bei den Theken-Cowboys! Such dir einen Hocker und fühl dich wie zuhause.
+  - 🤠 {mention} ist in den Saloon gestolpert. Willkommen bei den Theken-Cowboys!
+  - '🥃 Neuer Cowboy an der Theke: {mention}. Prost und willkommen!'
+  - '🚪 Die Saloon-Tür schwingt auf: {mention} ist da. Willkommen bei {server}!'
+  - 🍺 {mention}, willkommen an der Theke. Der erste virtuelle Drink geht aufs Haus.
+leave:
+  enabled: true
+  use_embed: true
+  channel_id: 0
+  title: 🚪 Die Theke wurde verlassen
+  color: red
+  messages:
+  - 🚪 {name} hat den Saloon verlassen. Der Hocker bleibt erstmal frei.
+  - 🥃 {name} ist weitergezogen. Gute Reise, Cowboy.
+  - 🤠 {name} hat die Theke verlassen. Vielleicht sieht man sich wieder.
+  - 🌵 {name} reitet dem Sonnenuntergang entgegen.
+  - 🍺 {name} ist raus. Die Runde geht ohne ihn weiter.

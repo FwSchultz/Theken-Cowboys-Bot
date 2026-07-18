@@ -1,0 +1,254 @@
+server:
+  name: Theken-Cowboys
+roles:
+  wirt: 🍺 Wirt
+  arc_raider: 🛰️ ARC-Raider
+  stammgast: 🍻 Stammgast
+  theken_cowboy: Theken-Cowboy
+  musico_prime: Musico Prime
+  gast: 🚪 Gast
+  arctracker_bot: ARCTracker.io Bot
+  audit_bot: dc-reader
+  translator_bot: translator-bot
+  musico: Musico
+  poe2_mentor: 💎 POE2 Mentor
+  poe2: 👀 POE2
+role_audit:
+- gast
+- stammgast
+- arc_raider
+- wirt
+- arctracker_bot
+- theken_cowboy
+- musico_prime
+- musico
+- audit_bot
+- translator_bot
+- poe2_mentor
+- poe2
+channels:
+  hausordnung: 📜-hausordnung
+  join_leave: 👋-join-und-leave
+  ankuendigungen: 📢-ankündigungen
+  vorstellung: 🙋-vorstellung
+  arc_tracker: 🤖-arc-tracker
+  telegram: 📡-telegram
+  telegram_en: 📡-telegram-en
+  development: 🧪-development
+  stammgast_log: 👨‍💻-stammgast-log
+categories:
+  hinterzimmer: 🔒 Hinterzimmer
+  poe2: 🧙 Path of Exile 2
+forums:
+  poe2_guides: 🧪-poe2-guides
+voice_channels:
+  theke: 🔊 Theke
+  stammtisch_voice: 🔊 Stammtisch
+  zockertisch: 🎮 Zockertisch
+  raucherecke: 😴 Raucherecke / AFK
+  poe2_voice: 🔊 POE2
+allowed_dangerous_global_roles:
+- wirt
+audit_bot_compare_role: stammgast
+audit_bot_permission_details:
+- arc_tracker
+dangerous_permissions:
+  administrator: Administrator
+  manage_guild: Server verwalten
+  manage_roles: Rollen verwalten
+  manage_channels: Kanäle verwalten
+  manage_webhooks: Webhooks verwalten
+  ban_members: Mitglieder bannen
+  kick_members: Mitglieder kicken
+  manage_messages: Nachrichten verwalten
+  moderate_members: Mitglieder timeouten
+rules:
+- name: Gast darf normale Voice-Channels nicht sehen
+  section: Soll-Regeln Gast
+  type: cannot_see_channel
+  role: gast
+  voice_channels:
+  - theke
+  - stammtisch_voice
+  - zockertisch
+  - raucherecke
+  - poe2_voice
+- name: Gast darf normale Voice-Channels nicht betreten
+  section: Soll-Regeln Gast
+  type: cannot_join_voice
+  role: gast
+  voice_channels:
+  - theke
+  - stammtisch_voice
+  - zockertisch
+  - raucherecke
+  - poe2_voice
+- name: Stammgast darf in Hausordnung nicht schreiben
+  section: Soll-Regeln Stammgast
+  type: cannot_write_channel
+  role: stammgast
+  channel: hausordnung
+- name: Stammgast darf in Ankündigungen nicht schreiben
+  section: Soll-Regeln Stammgast
+  type: cannot_write_channel
+  role: stammgast
+  channel: ankuendigungen
+- name: ARC-Raider darf Raucherecke nicht sehen
+  section: Soll-Regeln ARC
+  type: cannot_see_channel
+  role: arc_raider
+  voice: raucherecke
+- name: ARC-Raider darf Raucherecke nicht betreten
+  section: Soll-Regeln ARC
+  type: cannot_join_voice
+  role: arc_raider
+  voice: raucherecke
+- name: ARCTracker.io Bot darf Raucherecke nicht sehen
+  section: Soll-Regeln ARC
+  type: cannot_see_channel
+  role: arctracker_bot
+  voice: raucherecke
+- name: ARCTracker.io Bot darf Raucherecke nicht betreten
+  section: Soll-Regeln ARC
+  type: cannot_join_voice
+  role: arctracker_bot
+  voice: raucherecke
+- name: Gast sieht ARC-Tracker nicht
+  section: ARC-Tracker
+  type: cannot_see_channel
+  role: gast
+  channel: arc_tracker
+- name: Stammgast sieht ARC-Tracker nicht
+  section: ARC-Tracker
+  type: cannot_see_channel
+  role: stammgast
+  channel: arc_tracker
+- name: ARC-Raider sieht ARC-Tracker
+  section: ARC-Tracker
+  type: can_see_channel
+  role: arc_raider
+  channel: arc_tracker
+- name: ARC-Raider kann ARC-Tracker benutzen
+  section: ARC-Tracker
+  type: can_use_slash
+  role: arc_raider
+  channel: arc_tracker
+- name: ARCTracker.io Bot sieht ARC-Tracker
+  section: ARC-Tracker
+  type: can_see_channel
+  role: arctracker_bot
+  channel: arc_tracker
+- name: ARCTracker.io Bot kann schreiben
+  section: ARC-Tracker
+  type: can_write_channel
+  role: arctracker_bot
+  channel: arc_tracker
+- name: ARCTracker.io Bot kann Embeds senden
+  section: ARC-Tracker
+  type: can_embed_links
+  role: arctracker_bot
+  channel: arc_tracker
+- name: ARCTracker.io Bot kann Verlauf lesen
+  section: ARC-Tracker
+  type: can_read_channel
+  role: arctracker_bot
+  channel: arc_tracker
+- name: Wirt sieht ARC-Tracker
+  section: ARC-Tracker
+  type: can_see_channel
+  role: wirt
+  channel: arc_tracker
+- name: Gast sieht Hinterzimmer nicht
+  section: Hinterzimmer
+  type: cannot_see_category
+  role: gast
+  category: hinterzimmer
+- name: Stammgast sieht Hinterzimmer nicht
+  section: Hinterzimmer
+  type: cannot_see_category
+  role: stammgast
+  category: hinterzimmer
+- name: ARC-Raider sieht Hinterzimmer nicht
+  section: Hinterzimmer
+  type: cannot_see_category
+  role: arc_raider
+  category: hinterzimmer
+- name: Wirt sieht Hinterzimmer
+  section: Hinterzimmer
+  type: can_see_category
+  role: wirt
+  category: hinterzimmer
+- name: Gast sieht POE2-Kategorie nicht
+  section: POE2
+  type: cannot_see_category
+  role: gast
+  category: poe2
+- name: Stammgast sieht POE2-Kategorie nicht
+  section: POE2
+  type: cannot_see_category
+  role: stammgast
+  category: poe2
+- name: POE2 sieht POE2-Kategorie
+  section: POE2
+  type: can_see_category
+  role: poe2
+  category: poe2
+- name: POE2 Mentor sieht POE2-Kategorie
+  section: POE2
+  type: can_see_category
+  role: poe2_mentor
+  category: poe2
+- name: POE2 Mentor hat keine global kritischen Rechte
+  section: POE2
+  type: no_global_dangerous_permissions
+  role: poe2_mentor
+- name: POE2 sieht POE2-Forum
+  section: POE2
+  type: can_see_channel
+  role: poe2
+  forum: poe2_guides
+- name: POE2 kann POE2-Forum lesen
+  section: POE2
+  type: can_read_channel
+  role: poe2
+  forum: poe2_guides
+- name: POE2 Mentor sieht POE2-Forum
+  section: POE2
+  type: can_see_channel
+  role: poe2_mentor
+  forum: poe2_guides
+- name: POE2 Mentor kann im POE2-Forum posten
+  section: POE2
+  type: can_write_channel
+  role: poe2_mentor
+  forum: poe2_guides
+- name: POE2 Mentor kann POE2-Beiträge moderieren
+  section: POE2
+  type: can_manage_messages
+  role: poe2_mentor
+  forum: poe2_guides
+- name: POE2 sieht POE2-Voice
+  section: POE2
+  type: can_see_channel
+  role: poe2
+  voice: poe2_voice
+- name: POE2 kann POE2-Voice betreten
+  section: POE2
+  type: can_join_voice
+  role: poe2
+  voice: poe2_voice
+- name: POE2 Mentor sieht POE2-Voice
+  section: POE2
+  type: can_see_channel
+  role: poe2_mentor
+  voice: poe2_voice
+- name: POE2 Mentor kann POE2-Voice betreten
+  section: POE2
+  type: can_join_voice
+  role: poe2_mentor
+  voice: poe2_voice
+- name: POE2 Mentor kann im POE2-Voice sprechen
+  section: POE2
+  type: can_speak_voice
+  role: poe2_mentor
+  voice: poe2_voice

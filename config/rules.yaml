@@ -1,0 +1,46 @@
+rules_accept:
+  enabled: true
+  channel_id: 0
+  guest_role_id: 0
+  notify_admin_user_ids: []
+  admin_notify_channel_id: 0
+  title: 📜 Hausordnung der Theken-Cowboys
+  description: 'Damit die Kneipe gemütlich bleibt, gelten ein paar einfache Regeln.
+
+
+    🍺 **Kein Stress an der Theke**
+
+    Beleidigungen, Drohungen, Hetze und unnötiges Drama bleiben draußen.
+
+
+    🤝 **Respektvoll bleiben**
+
+    Spaß ist erlaubt. Aber nicht auf Kosten anderer.
+
+
+    🚫 **Kein Spam**
+
+    Keine Werbung, kein Link-Spam, kein dauerhaftes Pingen.
+
+
+    ⚠️ **Keine illegalen Inhalte**
+
+    Keine Cheats, Cracks, Leaks, Betrug oder sonstiger Mist.
+
+
+    🔒 **Datenschutz beachten**
+
+    Poste keine privaten Daten von dir oder anderen Personen.
+
+
+    🍺 **Der Wirt entscheidet**
+
+    Wenn etwas aus dem Ruder läuft, wird eingegriffen.
+
+
+    Diskussionen darüber bitte ruhig und sachlich.
+
+    '
+  button_label: ✅ Hausordnung akzeptieren
+  success_message: ✅ Danke! Du hast die Hausordnung bestätigt und bist jetzt Gast.
+  already_accepted_message: ✅ Du hast die Hausordnung bereits bestätigt.

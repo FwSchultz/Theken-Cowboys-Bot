@@ -1,0 +1,68 @@
+bot:
+  name: Theken-Cowboys-Bot
+  command_prefix: '!'
+  command_sync: true
+guild:
+  id: 0
+permissions:
+  allow_discord_administrator: true
+  admin_role_ids: []
+  deny_message: ⛔ Du hast keine Berechtigung für diesen Bot-Befehl.
+logging:
+  verbose_autoclear: false
+  verbose_memberlog: false
+  log_kept_messages: false
+  log_dry_run_matches: true
+modules:
+  admin:
+    enabled: true
+    cog: cogs.admin
+    config: null
+    description: Bot-Status und Config-Reload
+  settings:
+    enabled: true
+    cog: cogs.settings
+    config: null
+    description: Discord-Settings verwalten
+  welcome:
+    enabled: true
+    cog: cogs.welcome
+    config: config/welcome.yaml
+    description: Willkommen- und Verlassen-Nachrichten
+  rules:
+    enabled: true
+    cog: cogs.rules_accept
+    config: config/rules.yaml
+    description: Hausordnung akzeptieren und Gast-Rolle vergeben
+  memberlog:
+    enabled: true
+    cog: cogs.member_logger
+    config: config/memberlog.yaml
+    description: Voice-/Member-Logging
+  autoclear:
+    enabled: true
+    cog: cogs.autoclear
+    config: config/autoclear.yaml
+    description: Automatisches Löschen alter Bot-Nachrichten
+  audit:
+    enabled: true
+    cog: cogs.audit
+    config: config/audit.yaml
+    description: Discord-Reader / Server-Audit
+  translator:
+    enabled: true
+    cog: cogs.translator
+    config: config/translator.yaml
+    description: Automatischer Übersetzer
+  arc_raider:
+    enabled: false
+    cog: cogs.arc_raider
+    config: config/arc_raider.yaml
+    description: ARC-Raider-Funktionen
+  channel_tools:
+    enabled: true
+    cog: cogs.channel_tools
+    config: null
+    description: Textkanäle sicher bereinigen
+database:
+  path: data/settings.sqlite

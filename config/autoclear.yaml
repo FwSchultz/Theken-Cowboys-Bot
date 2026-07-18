@@ -1,0 +1,32 @@
+autoclear:
+  enabled: true
+  channel_id: 0
+  target_bot_user_id: 0
+  schedule:
+    mode: interval
+    timezone: Europe/Berlin
+    times: []
+  interval_minutes: 30
+  delete_after_minutes: 120
+  scan_limit: 100
+  dry_run: false
+  delete_rules:
+    required_contains:
+    - 'RUNDEN-BERICHT:'
+    - ArcTracker.io Raid-Verlauf
+  keep_rules:
+    contains:
+    - Zukünftige Ereignisse
+    - Automatisch aktualisiert
+    - Endet in
+    - Harvester
+    - Schürfsonden
+    - Startturm-Beute
+    - Vogelstadt
+    - Nacht-Raid
+    - Elektromagnetischer Sturm
+    - Close Scrutiny
+    - Matriarchin
+    - Open Map Events
+    - docs.google.com/document
+    - Loot-Liste-ARC-Raiders
