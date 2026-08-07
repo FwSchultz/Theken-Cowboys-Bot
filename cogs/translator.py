@@ -315,6 +315,21 @@ class TranslatorCog(commands.Cog):
         return f"https://discord.com/channels/{message.guild.id}/{message.channel.id}/{message.id}"
 
     @staticmethod
+    def get_source_name(message: discord.Message) -> str:
+        """Return the visible source name of a followed announcement/webhook message."""
+        display_name = getattr(message.author, "display_name", None) or getattr(message.author, "name", None)
+        return str(display_name or "Unbekannte Quelle").strip()
+
+    @classmethod
+    def build_source_header(cls, message: discord.Message, original_link: str) -> str:
+        source_name = cls.get_source_name(message)
+        return (
+            f"📡 **Quelle:** {source_name}\n"
+            f"📥 **Eingang:** {message.channel.mention}\n"
+            f"🔗 **Original:** {original_link}"
+        )
+
+    @staticmethod
     def shorten(text: str, limit: int = 900) -> str:
         return text if len(text) <= limit else text[: limit - 3] + "..."
 
@@ -439,6 +454,8 @@ class TranslatorCog(commands.Cog):
             logging.warning("Übersetzungs-Zielkanal nicht gefunden: %s", target_channel_id)
             return
         original_link = self.build_original_link(message)
+        source_name = self.get_source_name(message)
+        source_header = self.build_source_header(message, original_link)
         post_as_embed = behavior.get("post_as_embed", True)
         add_original_link = behavior.get("add_original_link", True)
         show_original_excerpt = behavior.get("show_original_excerpt", True)
@@ -451,7 +468,9 @@ class TranslatorCog(commands.Cog):
                     embed = discord.Embed(title=title, description=chunk, color=discord.Color.blue())
                     if index == 1 and image_urls:
                         embed.set_image(url=image_urls[0])
-                    embed.set_footer(text=f"Quelle: #{message.channel.name} | Übersetzer: {used_provider}")
+                    embed.set_footer(text=f"Quelle: {source_name} | Eingang: #{message.channel.name} | Übersetzer: {used_provider}")
+                    if index == 1:
+                        embed.add_field(name="Quelle", value=f"**{source_name}**\nEingang: {message.channel.mention}", inline=False)
                     if index == 1 and show_original_excerpt:
                         embed.add_field(name="Original-Auszug", value=self.shorten(raw_text, 900), inline=False)
                     if index == 1 and add_original_link:
@@ -462,10 +481,12 @@ class TranslatorCog(commands.Cog):
                 discord_files = await self.download_image_files(image_files, limit=10)
                 for index, chunk in enumerate(chunks, start=1):
                     output = chunk
+                    if index == 1:
+                        output = f"{source_header}\n\n{output}"
                     if index == 1 and file_urls:
                         output += "\n\nAnhänge:\n" + "\n".join(file_urls[:5])
-                    if index == 1 and add_original_link:
-                        output += f"\n\nOriginal: {original_link}"
+                    if index == 1 and not add_original_link:
+                        output = output.replace(f"\n🔗 **Original:** {original_link}", "")
                     if index == 1 and discord_files:
                         await target_channel.send(content=output[:2000], files=discord_files)
                     else:

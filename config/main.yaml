@@ -64,5 +64,10 @@ modules:
     cog: cogs.channel_tools
     config: null
     description: Textkanäle sicher bereinigen
+  vote:
+    enabled: true
+    cog: cogs.vote
+    config: null
+    description: Mehrstufige Abstimmungen mit Panel und SQLite
 database:
   path: data/settings.sqlite

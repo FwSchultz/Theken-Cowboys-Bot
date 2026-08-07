@@ -1,15 +1,26 @@
+# ==================================================
+# ARC RAIDER CONFIG
+# ==================================================
+# Zuständig für ARC-Raider / ARCTracker.io bezogene Funktionen.
+# Aktivierung erfolgt über:
+# config/main.yaml -> modules.arc_raider.enabled
+# ==================================================
+
 arc_raider:
   website:
     enabled: true
-    url: https://arc.fwschultz.de
+    url: "https://arc.fwschultz.de"
+
   discord:
     tracker_channel_id: 0
-    tracker_channel_name: 🤖-arc-tracker
+    tracker_channel_name: "🤖-arc-tracker"
+
   roles:
-    arc_raider_role_name: 🛰️ ARC-Raider
-    arctracker_bot_role_name: ARCTracker.io Bot
+    arc_raider_role_name: "🛰️ ARC-Raider"
+    arctracker_bot_role_name: "ARCTracker.io Bot"
     arc_raider_role_id: 0
     arctracker_bot_role_id: 0
+
   autoclear:
     enabled: true
     target_bot_user_id: 0
@@ -17,29 +28,33 @@ arc_raider:
     delete_after_minutes: 120
     scan_limit: 100
     dry_run: false
+
     delete_rules:
       required_contains:
-      - 'RUNDEN-BERICHT:'
-      - ArcTracker.io Raid-Verlauf
+        - "RUNDEN-BERICHT:"
+        - "ArcTracker.io Raid-Verlauf"
+
     keep_rules:
       contains:
-      - Zukünftige Ereignisse
-      - Automatisch aktualisiert
-      - Endet in
-      - Harvester
-      - Schürfsonden
-      - Startturm-Beute
-      - Vogelstadt
-      - Nacht-Raid
-      - Elektromagnetischer Sturm
-      - Close Scrutiny
-      - Matriarchin
-      - Open Map Events
-      - docs.google.com/document
-      - Loot-Liste-ARC-Raiders
+        - "Zukünftige Ereignisse"
+        - "Automatisch aktualisiert"
+        - "Endet in"
+        - "Harvester"
+        - "Schürfsonden"
+        - "Startturm-Beute"
+        - "Vogelstadt"
+        - "Nacht-Raid"
+        - "Elektromagnetischer Sturm"
+        - "Close Scrutiny"
+        - "Matriarchin"
+        - "Open Map Events"
+        - "docs.google.com/document"
+        - "Loot-Liste-ARC-Raiders"
+
   audit:
     enabled: true
-    permission_rules_section: ARC-Tracker
+    permission_rules_section: "ARC-Tracker"
+
   features:
     status_command: true
     website_link_command: true

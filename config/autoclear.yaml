@@ -4,6 +4,10 @@ autoclear:
   target_bot_user_id: 0
   schedule:
     mode: interval
+    # interval = alle X Minuten, daily = zu festen Uhrzeiten
+    # Beispiel daily:
+    # mode: daily
+    # times: ["04:00"]
     timezone: Europe/Berlin
     times: []
   interval_minutes: 30
